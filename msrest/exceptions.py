@@ -28,7 +28,6 @@ import logging
 import sys
 
 from typing import Callable, Any, Optional, TYPE_CHECKING
-from azure.core.exceptions import SerializationError, DeserializationError
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -52,6 +51,17 @@ def raise_with_traceback(exception, message="", *args, **kwargs):
     except AttributeError:
         error.__traceback__ = exc_traceback
         raise error
+
+
+# Copied from azure.core.exceptions to avoid circular dependency, but we
+# want to be able to catch these exceptions in the client without importing
+# azure.core.exceptions.
+class SerializationError(ValueError):
+    """Raised if an error is encountered during serialization."""
+
+
+class DeserializationError(ValueError):
+    """Raised if an error is encountered during deserialization."""
 
 
 class ClientException(Exception):

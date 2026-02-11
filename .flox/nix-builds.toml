@@ -1,3 +1,0 @@
-[catalogs."azure-sdk-for-python"]
-type = "git"
-url = "https://github.com/limeytexan/azure-sdk-for-python"

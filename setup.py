@@ -54,7 +54,6 @@ setup(
         "requests_oauthlib>=0.5.0",
         "isodate>=0.6.0",
         "certifi>=2017.4.17",
-        "azure-core>=1.24.0",
     ],
     include_package_data=True,
     package_data={

@@ -1,5 +1,4 @@
 {
-  catalogs,
   lib,
   aiodns,
   aiohttp,
@@ -17,10 +16,7 @@
   trio,
 }:
 
-let
-  inherit (catalogs.azure-sdk-for-python.python3Packages) azure-core;
-
-in buildPythonPackage {
+buildPythonPackage {
   pname = "msrest";
   version = "0.7.1";
   pyproject = true;
@@ -30,7 +26,6 @@ in buildPythonPackage {
   nativeBuildInputs = [ setuptools ];
 
   propagatedBuildInputs = [
-    azure-core
     aiodns
     aiohttp
     certifi

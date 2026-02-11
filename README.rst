@@ -46,6 +46,8 @@ Release History
 
 - Add `azure-core` as installation requirement #247
 - Replace `SerializationError` and `DeserializationError` in `msrest.exceptions` with those in `azure.core` #247
+- Remove `azure-core` to avoid cyclic msrest -> azure-core -> msrest dependency,
+  and instead copy the `SerializationError` and `DeserializationError` classes
 
 **Bugfixes**
 
